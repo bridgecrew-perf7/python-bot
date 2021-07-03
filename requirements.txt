@@ -1,0 +1,6 @@
+discord.py
+flask
+pathos
+multiprocess
+python-dotenv
+RestrictedPython
