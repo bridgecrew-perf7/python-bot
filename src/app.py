@@ -6,11 +6,9 @@ import multiprocess
 from pathos.multiprocessing import ProcessPool
 import random
 
-from TOKEN import TOKEN
 from interpreter import interpret
 
 from discord.ext import commands
-
 
 bot = commands.Bot(command_prefix = '!') # prefix
 
@@ -63,4 +61,4 @@ async def randomMeme(ctx): # Función que devuelve un meme (img) aleatorio
 
 if __name__ == '__main__':
     print('Bot Corriendo!')
-    bot.run(TOKEN())
+    bot.run(os.getenv("TOKEN"))
