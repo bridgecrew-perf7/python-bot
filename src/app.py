@@ -12,14 +12,14 @@ from discord.ext import commands
 
 bot = commands.Bot(command_prefix = '!') # prefix
 
-@bot.command(name = 'ping')
-async def randomMeme(ctx): # verify that the bot is running
+@bot.command(name = 'ping') # Comando que verifica que el bot está corriendo
+async def randomMeme(ctx): 
     await ctx.send("pong!") 
 
 
-@bot.command(name = 'py')
+@bot.command(name = 'py') # Comando que interpreta código de python y devuelve el output
 async def debug(ctx, *, message):
-    if '```python' in message:
+    if '```python' in message: #saco el decorador del mensaje de discord
         message = message[9:]
         message = message[:-3]
     
@@ -38,8 +38,8 @@ async def debug(ctx, *, message):
     await ctx.send(output)
 
 
-@bot.command(name = 'meme')
-async def randomMeme(ctx): # Función que devuelve un meme (img) aleatorio
+@bot.command(name = 'meme') # Comando que devuelve un meme (img) aleatorio
+async def randomMeme(ctx): 
     memes = [
         'https://img.devrant.com/devrant/rant/r_2222259_ab3At.jpg',
         'https://img.devrant.com/devrant/rant/r_3845088_HgBjZ.jpg',
@@ -47,7 +47,6 @@ async def randomMeme(ctx): # Función que devuelve un meme (img) aleatorio
         'https://pics.me.me/when-you-write-i-in-a-python-code-we-dont-63760085.png',
         'https://miro.medium.com/max/572/1*-81rUyhT8snH86Lfet6jNA.jpeg',
         'https://pics.me.me/thumb_when-your-code-is-a-mess-but-it-still-works-71570634.png',
-        'https://vincentdnl.com/static/53be1c651fa390e15b1ba2dc146231b4/5f4af/semicolon.png',
         'http://images7.memedroid.com/images/UPLOADED915/5b606b55be7f9.jpeg'
     ] #memelist
     response = random.choice(memes)
