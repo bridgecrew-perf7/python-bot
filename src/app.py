@@ -17,11 +17,6 @@ async def randomMeme(ctx): # verify that the bot is running
     await ctx.send("pong!") 
 
 
-@bot.command(name = 'test') # test de ignorar quotes
-async def test(ctx, *, arg):
-    await ctx.send(arg)
-
-
 @bot.command(name = 'py')
 async def debug(ctx, *, message):
     if '```python' in message:
