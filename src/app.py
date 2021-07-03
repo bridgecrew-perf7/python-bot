@@ -8,6 +8,7 @@ import random
 
 from TOKEN import TOKEN
 from interpreter import interpret
+from stayin_alive import keep_alive
 
 from discord.ext import commands
 
@@ -62,5 +63,6 @@ async def randomMeme(ctx): # Función que devuelve un meme (img) aleatorio
 
 
 if __name__ == '__main__':
+    keep_alive()
     print('Bot Corriendo!')
     bot.run(TOKEN())
