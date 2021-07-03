@@ -33,7 +33,7 @@ async def debug(ctx, *, message):
         output = "ERROR -se excedió el tiempo de ejecución"
 
     except: # error de sintaxis
-        output = "ERROR -No pude interpretar el código, por favor, revisa si hay algún error de sintaxis"
+        output = "ERROR -No pude interpretar el código, por favor, revisa si hay algún error de sintaxis, si no lo hay, puede que la funcionalidad que querés usar aún no fue implementada"
 
     await ctx.send(output)
 
