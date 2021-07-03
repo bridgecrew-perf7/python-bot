@@ -27,3 +27,10 @@
 # Enjoy!
 
 ![img](https://i1.wp.com/jobloving.com/wp-content/uploads/2018/09/Work-Quotes-These-Funny-Michael-Scott-Quotes-About-Work-Will-Make-You-LOL-8-Life-Style.jpg?resize=696%2C389)
+
+
+
+#### Funcionalidades aún no implementadas
++ función `range`
++ compresión de listas
++ Librerías como `numpy`, `matplotlib`, `json`, etc.
