@@ -13,6 +13,7 @@ from RestrictedPython import compile_restricted, utility_builtins
 from RestrictedPython.PrintCollector import PrintCollector
 
 import numpy as np
+import random
 
 dotenv.load_dotenv()
 
@@ -40,7 +41,8 @@ def interpret(code):
             "max"                   : max,
             "round"                 : round,
             "map"                   : map,
-            "np"                    : np
+            "np"                    : np,
+            "random"                : random
         },
         "_getattr_": RestrictedPython.Guards.safer_getattr
     }

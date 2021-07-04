@@ -12,6 +12,13 @@
 <tu codigo>
 ```
 
+## Librerías incluídas en el bot
+```python
+import numpy as np
+import random
+```
+
+
 ## Bonus
 ### Con el comando `!meme` podrás obtener un valioso meme aleatorio!
 ![img](https://pbs.twimg.com/media/CtLHPUhUAAACY2j.jpg:large)
