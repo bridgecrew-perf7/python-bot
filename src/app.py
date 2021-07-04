@@ -13,7 +13,7 @@ from discord.ext import commands
 bot = commands.Bot(command_prefix = '!') # prefix
 
 @bot.command(name = 'ping') # Comando que verifica que el bot está corriendo
-async def randomMeme(ctx): 
+async def ping(ctx): 
     await ctx.send("pong!") 
 
 
@@ -39,7 +39,7 @@ async def debug(ctx, *, message):
 
 
 @bot.command(name = 'meme') # Comando que devuelve un meme (img) aleatorio
-async def randomMeme(ctx): 
+async def meme(ctx): 
     memes = [
         'https://img.devrant.com/devrant/rant/r_2222259_ab3At.jpg',
         'https://img.devrant.com/devrant/rant/r_3845088_HgBjZ.jpg',
