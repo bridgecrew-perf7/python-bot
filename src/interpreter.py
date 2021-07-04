@@ -28,7 +28,15 @@ def interpret(code):
             "all"                   : all,
             "any"                   : any,
             "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,
-            "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence
+            "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence,
+            "len"                   : len,
+            "list"                  : list,
+            "range"                 : range,
+            "abs"                   : abs,
+            "dict"                  : dict,
+            "str"                   : str,
+            "max"                   : max,
+            "round"                 : round
         },
         "_getattr_": RestrictedPython.Guards.safer_getattr
     }
