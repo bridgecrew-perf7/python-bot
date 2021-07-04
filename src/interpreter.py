@@ -12,6 +12,8 @@ import RestrictedPython
 from RestrictedPython import compile_restricted, utility_builtins
 from RestrictedPython.PrintCollector import PrintCollector
 
+import numpy as np
+
 dotenv.load_dotenv()
 
 def interpret(code):
@@ -36,7 +38,9 @@ def interpret(code):
             "dict"                  : dict,
             "str"                   : str,
             "max"                   : max,
-            "round"                 : round
+            "round"                 : round,
+            "map"                   : map,
+            "np"                    : np
         },
         "_getattr_": RestrictedPython.Guards.safer_getattr
     }
