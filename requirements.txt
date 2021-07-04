@@ -4,3 +4,4 @@ pathos
 multiprocess
 python-dotenv
 RestrictedPython
+numpy
