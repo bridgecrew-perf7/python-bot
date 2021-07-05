@@ -7,9 +7,11 @@
 ```
 
 ## También podés darle formato al código de la siguiente forma:
+
 ```bash
 !py ```python
 <tu codigo>
+```                ㅤ
 ```
 
 ## Librerías incluídas en el bot
