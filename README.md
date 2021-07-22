@@ -23,7 +23,7 @@ import random
 
 ## Bonus
 ### Con el comando `!meme` podrás obtener un valioso meme aleatorio!
-![img](https://pbs.twimg.com/media/CtLHPUhUAAACY2j.jpg:large)
+![img](https://i.guim.co.uk/img/media/a6c0ec5ffca421788f1b66419e7d7b5bad6b9a18/0_128_3000_1800/master/3000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=11074065aadb6ceb3e87f72a236cbfe3)
 
 
 # Como agregar el bot a tu servidor
@@ -33,6 +33,6 @@ import random
 
 #  
 
-# Enjoy!
+# Eso es todo!
 
 ![img](https://i1.wp.com/jobloving.com/wp-content/uploads/2018/09/Work-Quotes-These-Funny-Michael-Scott-Quotes-About-Work-Will-Make-You-LOL-8-Life-Style.jpg?resize=696%2C389)
