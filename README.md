@@ -30,9 +30,3 @@ import random
 
 ### Podés agregarlo clickeando [acá](https://discord.com/oauth2/authorize?client_id=860572737202290759&permissions=0&scope=bot)​
 ### Seleccioná el servidor donde querés agregarlo y oprimí el botón `Autorizar`
-
-#  
-
-# Eso es todo!
-
-![img](https://i1.wp.com/jobloving.com/wp-content/uploads/2018/09/Work-Quotes-These-Funny-Michael-Scott-Quotes-About-Work-Will-Make-You-LOL-8-Life-Style.jpg?resize=696%2C389)
