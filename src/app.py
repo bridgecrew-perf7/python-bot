@@ -41,7 +41,7 @@ async def debug(ctx, *, message):
 # plus secreto
 @bot.command(name = 'nashe') # devuelve :smirk: :hamburguer:
 async def nashe(ctx):
-    output = ':smirk::hamburguer:'
+    output = ':smirk::hamburger:'
     await ctx.send(output)
 
 
