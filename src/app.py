@@ -38,6 +38,13 @@ async def debug(ctx, *, message):
     await ctx.send(output)
 
 
+# plus secreto
+@bot.command(name = 'nashe') # devuelve :smirk: :hamburguer:
+async def nashe(ctx):
+    output = ':smirk::hamburguer:'
+    await ctx.send(output)
+
+
 @bot.command(name = 'meme') # Comando que devuelve un meme (img) aleatorio
 async def meme(ctx): 
     memes = [
