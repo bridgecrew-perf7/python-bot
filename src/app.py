@@ -6,9 +6,9 @@ import multiprocess
 from pathos.multiprocessing import ProcessPool
 import random
 
-from interpreter import interpret
-
 from discord.ext import commands
+
+from interpreter import interpret
 
 bot = commands.Bot(command_prefix = '!') # prefix
 
@@ -30,15 +30,15 @@ async def debug(ctx, *, message):
         output = debug.get(timeout = 7)
 
     except multiprocess.context.TimeoutError: # se excedió tiempo de respuesta
-        output = "ERROR -se excedió el tiempo de ejecución"
+        output = "Se excedió el tiempo de ejecución :("
 
-    except: # error de sintaxis
-        output = "ERROR -No pude interpretar el código, por favor, revisa si hay algún error de sintaxis, si no lo hay, puede que la funcionalidad que querés usar aún no fue implementada"
+    except Exception as error_name: # error de sintaxis o funcionalidad aun no implementada
+        output = f"Error: {error_name}"
 
     await ctx.send(output)
 
 
-# plus secreto
+# nonsense
 @bot.command(name = 'nashe') # devuelve :smirk: :hamburguer:
 async def nashe(ctx):
     output = ':smirk::hamburger:'
