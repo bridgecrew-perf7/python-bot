@@ -30,10 +30,10 @@ async def debug(ctx, *, message):
         output = debug.get(timeout = 7)
 
     except multiprocess.context.TimeoutError: # se excedió tiempo de respuesta
-        output = "Se excedió el tiempo de ejecución :("
+        output = "`Se excedió el tiempo de ejecución :(`"
 
     except Exception as error_name: # error de sintaxis o funcionalidad aun no implementada
-        output = f"Error: {error_name}"
+        output = f"`Error: {error_name}`"
 
     await ctx.send(output)
 
