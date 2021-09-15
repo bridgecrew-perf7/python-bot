@@ -1,7 +1,6 @@
 #!/usr/bin/env python
+
 import os
-import ast
-import re
 import multiprocess
 from pathos.multiprocessing import ProcessPool
 

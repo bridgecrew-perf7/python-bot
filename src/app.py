@@ -1,7 +1,6 @@
 #!/usr/bin/env python
+
 import os
-import ast
-import re
 import multiprocess
 from pathos.multiprocessing import ProcessPool
 import random
@@ -12,14 +11,14 @@ from interpreter import interpret
 
 bot = commands.Bot(command_prefix = '!') # prefix
 
-@bot.command(name = 'ping') # Comando que verifica que el bot está corriendo
+@bot.command(name = 'ping') # verifies that the bot is running
 async def ping(ctx): 
     await ctx.send("pong!") 
 
 
-@bot.command(name = 'py') # Comando que interpreta código de python y devuelve el output
+@bot.command(name = 'py') # interpret python code and return the output
 async def debug(ctx, *, message):
-    if '```python' in message: #saco el decorador del mensaje de discord
+    if '```python' in message: # remove discord decorator
         message = message[9:]
         message = message[:-3]
     
@@ -29,23 +28,16 @@ async def debug(ctx, *, message):
     try:
         output = debug.get(timeout = 7)
 
-    except multiprocess.context.TimeoutError: # se excedió tiempo de respuesta
+    except multiprocess.context.TimeoutError: # timeout error
         output = "`Se excedió el tiempo de ejecución :(`"
 
-    except Exception as error_name: # error de sintaxis o funcionalidad aun no implementada
+    except Exception as error_name: # syntax error or not implemented functionality
         output = f"`Error: {error_name}`"
 
     await ctx.send(output)
 
 
-# nonsense
-@bot.command(name = 'nashe') # devuelve :smirk: :hamburguer:
-async def nashe(ctx):
-    output = ':smirk::hamburger:'
-    await ctx.send(output)
-
-
-@bot.command(name = 'meme') # Comando que devuelve un meme (img) aleatorio
+@bot.command(name = 'meme') # returns a random meme (img)
 async def meme(ctx): 
     memes = [
         'https://img.devrant.com/devrant/rant/r_2222259_ab3At.jpg',
