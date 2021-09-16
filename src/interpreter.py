@@ -31,6 +31,7 @@ def interpret(code):
             "any"                   : any,
             "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,
             "_getitem_"             : RestrictedPython.Eval.default_guarded_getitem,
+            "_unpack_sequence_"     : RestrictedPython.Guards.guarded_iter_unpack_sequence,
             "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence,
             "len"                   : len,
             "list"                  : list,
