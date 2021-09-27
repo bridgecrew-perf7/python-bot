@@ -22,4 +22,4 @@ Bot.add_cog(JokesCog(Bot))
 
 if __name__ == '__main__':
     print('Bot Corriendo!')
-    Bot.run("ODYwNTcyNzM3MjAyMjkwNzU5.YN9M0Q.9txucxA2EgstI-P1WiUODksjcrA")
+    Bot.run(os.getenv("TOKEN"))
