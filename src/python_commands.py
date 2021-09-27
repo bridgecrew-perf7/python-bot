@@ -1,38 +1,65 @@
 #!/usr/bin/env python
 
-import os
+import discord
+from discord.ext import commands
+
 import multiprocess
 from pathos.multiprocessing import ProcessPool
 
+import re
 import dotenv
-import discord
-from discord.ext import commands
 import RestrictedPython
 from RestrictedPython import compile_restricted, utility_builtins
 from RestrictedPython.PrintCollector import PrintCollector
 
-import numpy as np
-import random
+class PythonCog(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
 
-dotenv.load_dotenv()
+    @commands.command(aliases=['py'])
+    async def debug(self, ctx, *, message):
+        # Remove discord decorator, '`' character and os import for security
+        message = re.sub("|\```python|\`|import os","",message)
+
+        pool = ProcessPool(nodes = 4) 
+        debug = pool.apipe(interpret,message)
+
+        try: # 7 seconds timeout predefined
+            output = debug.get(timeout = 7)
+
+        except multiprocess.context.TimeoutError: # Timeout error
+            output = "`Se excedió el tiempo de ejecución :(`"
+
+        except Exception as error_name:  # Syntax error or not implemented functionality
+            output = f"`Error: {error_name}`"
+
+        await ctx.send(output)
+
 
 def interpret(code):
-    code += "\nresults = printed"
+
+    #  Necessary to show output, save in data ['results'] the prints of the execution
+    code += "\nresults = printed" 
+
+    #  Interpreter, mode exec to be able to use statements, methods, classes, functions, etc.
     byte_code = compile_restricted(
         code,
         filename = "<string>",
         mode = "exec",
     )
-    data = { 
+    #  All the functionalities available to the bot are stored in data, mostly builtins
+    data = {
         "_print_"      : PrintCollector,
         "__builtins__" : {
             **utility_builtins,
+            "__import__"            : __import__,
             "all"                   : all,
             "any"                   : any,
-            "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,
-            "_getitem_"             : RestrictedPython.Eval.default_guarded_getitem,
-            "_unpack_sequence_"     : RestrictedPython.Guards.guarded_iter_unpack_sequence,
-            "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence,
+            "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,        #  Loops iterations
+            "_getitem_"             : RestrictedPython.Eval.default_guarded_getitem,        #  Get a list value by index
+            "_unpack_sequence_"     : RestrictedPython.Guards.guarded_iter_unpack_sequence, #  List functions
+            "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence, #  List functions
+            "round"                 : round,
             "len"                   : len,
             "list"                  : list,
             "range"                 : range,
@@ -43,8 +70,6 @@ def interpret(code):
             "max"                   : max,
             "round"                 : round,
             "map"                   : map,
-            "np"                    : np,
-            "random"                : random,
             "ascii"                 : ascii,
             "bool"                  : bool,
             "bytearray"             : bytearray,
@@ -71,5 +96,5 @@ def interpret(code):
         "_getattr_": RestrictedPython.Guards.safer_getattr
     }
     
-    exec(byte_code, data, None)
-    return data["results"]
+    exec(byte_code, data, None) #  Get the output
+    return data["results"] #  data["results"] only contains prints or NameErrors if exists
