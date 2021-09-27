@@ -6,7 +6,6 @@ import re
 from discord.ext import commands
 
 from python_commands import PythonCog
-from jokes_commands import JokesCog
 
 Bot = commands.Bot(command_prefix = '!') # prefix
 
@@ -16,8 +15,6 @@ async def ping(ctx):
 
 
 Bot.add_cog(PythonCog(Bot))
-
-Bot.add_cog(JokesCog(Bot))
 
 
 if __name__ == '__main__':
