@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
 import os
-import re
+from dotenv import load_dotenv
 
 from discord.ext import commands
-
 from python_commands import PythonCog
+
+load_dotenv()
 
 Bot = commands.Bot(command_prefix = '!') # prefix
 

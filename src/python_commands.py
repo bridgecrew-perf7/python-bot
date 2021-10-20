@@ -7,7 +7,6 @@ import multiprocess
 from pathos.multiprocessing import ProcessPool
 
 import re
-import dotenv
 import RestrictedPython
 from RestrictedPython import compile_restricted, utility_builtins
 from RestrictedPython.PrintCollector import PrintCollector
@@ -55,10 +54,13 @@ def interpret(code):
             "__import__"            : __import__,
             "all"                   : all,
             "any"                   : any,
-            "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,        #  Loops iterations
-            "_getitem_"             : RestrictedPython.Eval.default_guarded_getitem,        #  Get a list value by index
-            "_unpack_sequence_"     : RestrictedPython.Guards.guarded_iter_unpack_sequence, #  List functions
-            "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence, #  List functions
+            "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,        # iteraciones en bucles
+            "_getitem_"             : RestrictedPython.Eval.default_guarded_getitem,        # acceder a un valor de una lista por su indice
+            "_unpack_sequence_"     : RestrictedPython.Guards.guarded_iter_unpack_sequence, 
+            "_iter_unpack_sequence_": RestrictedPython.Guards.guarded_iter_unpack_sequence,
+            # Las ultimas 2 keys (lineas 65 y 66) son básicamente lo mismo, pero es necesario 
+            # que ambas estén declaradas para que el interprete las use,
+            # tienen funciones que operan con listas y strings, como por ejemplo, split
             "round"                 : round,
             "len"                   : len,
             "list"                  : list,

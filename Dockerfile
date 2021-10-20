@@ -1,12 +1,13 @@
-FROM alpine:3.10
+FROM python:3.9.5
 
-RUN apk add --no-cache python3-dev \
-    && pip3 install --upgrade pip
+ENV PYTHONUNBUFFERED=1
+
+COPY requirements.txt .
+
+RUN /usr/local/bin/python -m pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 WORKDIR /app
-
 COPY . /app
 
-RUN pip3 --no-cache-dir install -r requirements.txt
-
-CMD ["python3", "src/app.py"]
+CMD python src/app.py
