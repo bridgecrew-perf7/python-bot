@@ -1,0 +1,14 @@
+services:
+  python-bot:
+    tty: true
+    build:
+      context: .
+      dockerfile : docker/Dockerfile
+    
+    env_file:
+      - .env 
+    container_name: python-bot
+    volumes:
+      - type: bind
+        source: .
+        target: /app
