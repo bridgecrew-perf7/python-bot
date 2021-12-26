@@ -18,7 +18,7 @@ class PythonCog(commands.Cog):
     @commands.command(aliases=['py'])
     async def debug(self, ctx, *, message):
         # Remove discord decorator, '`' character and os import for security
-        message = re.sub("|\```python|\`|import os","",message)
+        message = re.sub("|\```python|\`|import os|```py","",message)
 
         pool = ProcessPool(nodes = 4) 
         debug = pool.apipe(interpret,message)
