@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 
-import discord
-from discord.ext import commands
-
-import multiprocess
-from pathos.multiprocessing import ProcessPool
-
 import re
+import discord
+from inplace import protected_inplacevar
+from discord.ext import commands
+import multiprocess
 import RestrictedPython
-from RestrictedPython import compile_restricted, utility_builtins
+from pathos.multiprocessing import ProcessPool
 from RestrictedPython.PrintCollector import PrintCollector
+from RestrictedPython import compile_restricted, utility_builtins
 
 class PythonCog(commands.Cog):
     def __init__(self, bot):
@@ -52,6 +51,7 @@ def interpret(code):
         "__builtins__" : {
             **utility_builtins,
             "__import__"            : __import__,
+            "_inplacevar_"          : protected_inplacevar,
             "all"                   : all,
             "any"                   : any,
             "_getiter_"             : RestrictedPython.Eval.default_guarded_getiter,        # iteraciones en bucles
