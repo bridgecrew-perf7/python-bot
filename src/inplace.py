@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 try:
     valid_inplace_types = list, set
 except NameError:
@@ -18,7 +20,6 @@ inplace_slots = {
     '^=': '__ixor__',
     '|=': '__ior_',
     }
-
 
 def __iadd__(x, y):
     x += y
@@ -68,7 +69,6 @@ def __ior__(x, y):
     x |= y
     return x
 
-    
 inplace_ops = {
     '+=': __iadd__,
     '-=': __isub__,

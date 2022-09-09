@@ -14,8 +14,4 @@
 ```                ㅤ
 ```
 
-# Como agregar el bot a tu servidor
-
-### Podés agregarlo clickeando [acá](https://discord.com/oauth2/authorize?client_id=860572737202290759&permissions=0&scope=bot)​
-### Seleccioná el servidor donde querés agregarlo y oprimí el botón `Autorizar`
-
+### [Join Link](https://discord.com/oauth2/authorize?client_id=860572737202290759&permissions=0&scope=bot)​

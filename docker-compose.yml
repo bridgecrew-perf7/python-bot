@@ -1,5 +1,5 @@
 services:
-  python-bot:
+  bot:
     tty: true
     build:
       context: .
@@ -7,8 +7,10 @@ services:
     
     env_file:
       - .env 
-    container_name: python-bot
+    container_name: mr_python
     volumes:
       - type: bind
         source: .
         target: /app
+    
+    command: python src/app.py
